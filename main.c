@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,17 +10,34 @@
 
 char buffer[BUFFER_SIZE];
 
+enum {
+	TYPE_UPPER,
+	TYPE_LOWER,
+	TYPE_OTHER
+} char_types[BUFFER_SIZE];
+
+void apply_types(size_t len)
+{
+	int i;
+
+	for (i = 0; i < len; i++) {
+		if (char_types[i] == TYPE_UPPER)
+			buffer[i] = toupper(buffer[i]);
+		else if (char_types[i] == TYPE_LOWER)
+			buffer[i] = tolower(buffer[i]);
+	}
+
+}
+
 int check_if_valid(const char letter)
 {
 	int i;
 
 	static char valid_letters[ALPHABET_SIZE + 1] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ',}; /* Space is valid but is ignored that's why there is ALPHABET_SIZE + 1 */
 
-	for (i = 0; i < ALPHABET_SIZE + 1; i++) {
-		if (letter == valid_letters[i]) {
+	for (i = 0; i < ALPHABET_SIZE + 1; i++)
+		if (letter == valid_letters[i])
 			return -1;
-		}
-	}
 
 	return 0;
 }
@@ -41,9 +59,25 @@ char encrypt(const char letter)
 	))))))));
 }
 
+void start_types(size_t len)
+{
+	int i;
+
+	for (i = 0; i < len; i++) {
+		if (isupper(buffer[i]))
+			char_types[i] = TYPE_UPPER;
+		else if (islower(buffer[i]))
+			char_types[i] = TYPE_LOWER;
+		else
+			char_types[i] = TYPE_OTHER;
+	}
+}
+
 int main(int argc, char* const argv[])
 {
 	int i;
+
+	int len;
 
 	rotor_order[0] = atoi(argv[1]);
 	rotor_order[1] = atoi(argv[2]);
@@ -79,11 +113,15 @@ int main(int argc, char* const argv[])
 
 	fgets(buffer, BUFFER_SIZE, stdin);
 
-	int len = strlen(buffer);
+	len = strlen(buffer);
 	
-	if (len > 0 && buffer[len - 1] == '\n') {
+	start_types(len);
+
+	for (i = 0; i < len; i++)
+		buffer[i] = toupper(buffer[i]);
+
+	if (len > 0 && buffer[len - 1] == '\n')
 		buffer[len - 1] = ' '; 
-	}
 
 	for (i = 0; i < len - 1; i++)
 		if (!check_if_valid(buffer[i])) {
@@ -94,6 +132,8 @@ int main(int argc, char* const argv[])
 	for (i = 0; i < len; i++)
 		if (buffer[i] != ' ')
 			buffer[i] = encrypt(buffer[i]);
+
+	apply_types(len);
 
 	puts(buffer);
 }
