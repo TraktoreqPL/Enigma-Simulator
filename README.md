@@ -31,10 +31,5 @@ These are the machine settings:
 * The next number is the mounted reflector ID, from `0` to `2`.
 * The **letters** represent the plugboard configuration. There must be exactly 20 of them. The first 10 are the input pins and the remaining 10 are the output pins. An input pin index matches its connected output pin index. For example, if the input pin is `A` and the output pin is `K`, `A` will be swapped with `K` and `K` will be swapped with `A`.
 
-## What do I want to add?
-* **Configuration files** - This will eliminate the risk of typos. You will be able to just send a configuration file to someone and it will work out of the box.
-* **Advanced error handling** - Currently, the project only has basic error handling, but it's possible to add a more robust system.
-* **Easy and lightweight GUI** - So regular users can operate it without reading this technical tutorial.
-
 ## How to help me with this project?
 If you know *ANSI C* and want to work on one of these tasks, just open a **Pull Request**. If you don't know the language yet, you can learn it (it's quite simple!) or share your ideas with me in the **Issues** tab.
