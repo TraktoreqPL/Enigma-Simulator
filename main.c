@@ -125,7 +125,7 @@ int main(int argc, char* const argv[])
 
 	for (i = 0; i < len - 1; i++)
 		if (!check_if_valid(buffer[i])) {
-			puts("Wrong text. Use only uppercase letters and spaces");
+			puts("Wrong text. Use only ASCII letters and spaces");
 			return 1;
 		}
 
