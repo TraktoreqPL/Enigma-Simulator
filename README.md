@@ -14,7 +14,7 @@ Next, run the following command:
 
 You might be interested in what those numbers and letters mean, but I will explain that later. 
 
-After running the command, you will see a new line. Now you can type the text that you want to encrypt or decrypt using **only uppercase letters and spaces**. Press *Enter* and, if there are no errors, you will see the encrypted text. 
+After running the command, you will see a new line. Now you can type the text that you want to encrypt or decrypt using **only *ASCII* letters and spaces**. Press *Enter* and, if there are no errors, you will see the encrypted text. 
 
 Since the Enigma cipher is symmetrical, if you run the encrypted text through the simulator again with the exact same settings, it will decrypt it.
 
