@@ -1,7 +1,7 @@
 # Enigma-Simulator
 
 ## What is it?
-This is an Enigma machine simulator written in *ANSI C*.
+This is an UNIX philosophy Enigma machine simulator written in *ANSI C*.
 
 ## How to use it?
 Download or clone this repository, then unpack it.
@@ -32,4 +32,11 @@ These are the machine settings:
 * The **letters** represent the plugboard configuration. There must be exactly 20 of them. The first 10 are the input pins and the remaining 10 are the output pins. An input pin index matches its connected output pin index. For example, if the input pin is `A` and the output pin is `K`, `A` will be swapped with `K` and `K` will be swapped with `A`.
 
 ## How to help me with this project?
+Please give me a **star**. For you it's just 1 click that you forgot, but I doesn't.
+
 If you know *ANSI C* and want to work on one of these tasks, just open a **Pull Request**. If you don't know the language yet, you can learn it (it's quite simple!) or share your ideas with me in the **Issues** tab.
+
+## Try these commands!
+`echo "message" | enigma.exe 0 1 2 0 0 0 0 A B C D E F G H I J K L M N O P R S T U`
+
+`enigma.exe 0 1 2 0 0 0 0 A B C D E F G H I J K L M N O P R S T U | enigma.exe 0 1 2 0 0 0 0 A B C D E F G H I J K L M N O P R S T U`
