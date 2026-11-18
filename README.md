@@ -1,3 +1,4 @@
+<img width="2146" height="1389" alt="enigma" src="https://github.com/user-attachments/assets/b6edc01a-195c-4c14-b2d5-15f81a1f06ca" />
 # Enigma-Simulator
 
 ## What is it?
